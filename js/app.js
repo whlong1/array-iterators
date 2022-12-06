@@ -27,13 +27,9 @@ console.log('Original Inventors', inventors)
 
 
 const bornIn1500s = inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600)
-// creates a new array, for every inventor in the original array, return only the inventors who meet this condition
+// creates a new array. for every inventor in the original array, return only the inventors who meet this condition
 // condition: year property must be greater than or equal to 1500 AND less than 1600
 console.log('bornIn1500s', bornIn1500s)
-
-
-
-
 
 //* =========================================================================================================
 // Array.prototype.map()
@@ -45,7 +41,7 @@ const namesOne = inventors.map((inventor) => {
   return { first: inventor.first, last: inventor.last }
 })
 
-// returns new array, created from results of executing a cb function on each element in the og array
+// map returns new array. created from results of executing a cb function on each element in the og array
 
 //TODO Approach 2
 const namesTwo = inventors.map((inventor) => (
@@ -53,14 +49,6 @@ const namesTwo = inventors.map((inventor) => (
 ))
 
 console.log('Names', namesTwo,)
-
-
-const nameArr = inventors.map(inventor => {
-  let firstName = inventor.first
-  let lastName = inventor.last
-  return `${firstName} ${lastName}`
-})
-console.log(nameArr)
 
 //* =========================================================================================================
 // Array.prototype.sort()
@@ -71,8 +59,9 @@ console.log(nameArr)
 //? Compare function Specifies a function that defines the sort order.
 
 //? sort accepts a compare function, and elements in the array will be sorted based on what that function returns
-//? if it returns a value Greater than 0, B goes before A
-//? if it returns a value Less than 0, A goes before B
+
+//? if it returns a POSITIVE VALUE, A moves after B
+//? if it returns a NEGATIVE VALUE, A moves before B
 
 //todo Ascending: begins with smallest and ends with greatest
 //todo Descending: begins with greatest and ends with smallest 
@@ -83,7 +72,7 @@ console.log(nameArr)
 // 0: {first: 'Albert', last: 'Einstein', year: 1879, passed: 1955}
 // 1: {first: 'Isaac', last: 'Newton', year: 1643, passed: 1727}
 
-const sortedBirthdays = inventors.sort((a, b) => a.year - b.year) //ascending order
+const sortedBirthdays = inventors.sort((a, b) => a.year - b.year) // ascending order
 
 console.log('sortedBirthdays', sortedBirthdays)
 
@@ -167,14 +156,11 @@ const data = [
 //?   return acc;
 //? }, {})
 
-
 const vehicles = data.reduce((obj, vehicle) => {
   if (obj[vehicle]) obj[vehicle]++ // if this key exists, increment the value by one
   if (!obj[vehicle]) obj[vehicle] = 1 // if the key does not exist, we add the value and assign it a value of 1
   return obj // return the object (the reduced output)
 }, {}) // initialValue => normally 0, need to initialize and empty object
-
-
 
 //? 1. Using dot notation:
 //? obj.key3 = "value3";
